@@ -6,68 +6,144 @@
       <!--Nome completo-->
       <div class="col-12">
         <label class="form-label" for="">Nome completo</label>
-        <input name="nome" id="nome" class="form-control" type="text" ngModel required minlength="2"/>
-       <div *ngIf="(f.controls['nome']?.invalid && f.controls['nome']?.touched) || f.controls['nome']?.dirty">
-        <span class="text-danger" *ngIf="f.controls['nome']?.errors?.required">
-          Campo obrigatório
-        </span>
-        <span class="text-danger" *ngIf="f.controls['nome']?.errors?.minlength">
-          Nome deve conter no minimo 2 caracteres
-        </span>
-       </div>
+        <input
+          name="nome"
+          id="nome"
+          class="form-control"
+          type="text"
+          ngModel
+          required
+          minlength="2"
+          #nome="ngModel"
+        />
+        <div *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty">
+          <app-mensagem class="text-danger"
+          *ngIf="nome?.errors?.required" mensagem=" Campo obrigatório">
+          </app-mensagem>
+          <app-mensagem  class="text-danger"
+          *ngIf="nome?.errors?.minlength" mensagem="Nome deve conter no minimo 2 caracteres">
+          </app-mensagem>
+        </div>
       </div>
       <!--Data de nascimento-->
       <div class="col-6">
         <label class="form-label" for="">Data de nascimento</label>
-        <input name="nascimento" class="form-control" type="date" id="" ngModel required />
-        <div *ngIf="(f.controls['nascimento']?.invalid && f.controls['nascimento']?.touched) || f.controls['nascimento'].dirty">
-          <span class="text-danger" *ngIf="f.controls['nascimento']?.errors?.required">
-            Data obrigatória
-          </span>
+        <input
+          name="nascimento"
+          class="form-control"
+          type="date"
+          id=""
+          ngModel
+          required
+          #nascimento="ngModel"
+        />
+        <div
+          *ngIf="(nascimento?.invalid && nascimento?.touched) ||nascimento.dirty">
+          <app-mensagem class="text-danger"
+            *ngIf="nascimento?.errors?.required" mensagem=" Data obrigatória">
+          </app-mensagem>
         </div>
       </div>
       <!--Contato-->
       <div class="col-6">
         <label class="form-label" for="">Contato</label>
-        <input name="contato" class="form-control" type="number" id="" ngModel required placeholder="(xx) x xxxx-xxxx"
-        pattern="(\(?\d{2}\)?\s?)(\d{5}\-?\d{4})"/>
-        <div *ngIf="(f.controls['contato']?.invalid && f.controls['contato']?.touched) || f.controls['contato']?.dirty">
-          <span class="text-danger" *ngIf="f.controls['contato']?.errors?.required">
-            Contato obrigatório
-          </span>
-          <span class="text-danger" *ngIf="f.controls['contato']?.errors?.pattern">
-            Numero de telefone invalido
-          </span>
+        <input
+          name="contato"
+          class="form-control"
+          type="number"
+          id=""
+          ngModel
+          required
+          placeholder="(xx) x xxxx-xxxx"
+          pattern="(\(?\d{2}\)?\s?)(\d{5}\-?\d{4})"
+          #contato="ngModel"
+        />
+        <div *ngIf="(contato?.invalid && contato?.touched) || contato?.dirty">
+          <app-mensagem class="text-danger"
+          *ngIf="contato?.errors?.required" mensagem="Contato obrigatório">
+          </app-mensagem>
+          <app-mensagem class="text-danger"
+            *ngIf="contato?.errors?.pattern" mensagem="Numero de telefone invalido">
+          </app-mensagem>
         </div>
       </div>
       <!--email-->
       <div class="col-12">
         <label class="form-label" for="">E-mail</label>
-        <input name="email" class="form-control" type="text" ngModel id="" required pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$">
-        <div *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched) || f.controls['email']?.dirty">
-          <span class="text-danger" *ngIf="f.controls['email']?.errors?.required">
-            Contato obrigatório
-          </span>
-          <span class="text-danger" *ngIf="f.controls['email']?.errors?.pattern">
-            E-mail invalido
-          </span>
+        <input
+          name="email"
+          class="form-control"
+          type="text"
+          ngModel
+          id=""
+          required
+          pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$"
+          #email="ngModel"
+        />
+        <div
+          *ngIf="(email?.invalid && email?.touched) || email?.dirty">
+          <app-mensagem class="text-danger"
+            *ngIf="email?.errors?.required" mensagem="Contato obrigatório">
+          </app-mensagem>
+          <app-mensagem class="text-danger"
+            *ngIf="email?.errors?.pattern" mensagem="E-mail invalido">
+          </app-mensagem>
         </div>
       </div>
       <h4>Dados Endereço</h4>
       <!--CEP-->
       <div class="col-12">
         <label class="form-label" for="">CEP</label>
-        <input name="cep" class="form-control" type="text" />
+        <input
+          name="cep"
+          class="form-control"
+          type="text" ngModel
+          required
+          #cep="ngModel"
+          />
+        <div *ngIf="(cep?.invalid && cep?.touched) || cep?.dirty">
+          <app-mensagem class="text-danger"
+           *ngIf="cep?.errors?.required" mensagem="CEP obrigatório">
+          </app-mensagem>
+        </div>
       </div>
       <!--Endereço-->
       <div class="col-12">
         <label class="form-label" for="">Endereço</label>
-        <input name="endereco" class="form-control" type="text" />
+        <input
+          name="endereco"
+          class="form-control"
+          type="text"
+          ngModel
+          required
+          #endereco="ngModel"
+          />
+          <div *ngIf="(endereco?.touched && endereco?.invalid) || endereco?.dirty">
+            <app-mensagem class="text-danger"
+            *ngIf="endereco?.errors?.required" mensagem="Endereço obrigatório"
+            ></app-mensagem>
+          </div>
       </div>
       <!--Numero-->
       <div class="col-6">
         <label class="form-label" for="">Numero</label>
-        <input name="numero" class="form-control" type="text" />
+        <input
+          name="numero"
+          class="form-control"
+          type="text"
+          ngModel
+          required
+          maxlength="7"
+          #numero="ngModel"
+           />
+          <div *ngIf="(numero?.invalid && numero?.touched) || numero?.dirty">
+            <app-mensagem class="text-danger"
+            *ngIf="numero?.errors?.required" mensagem="Numero obrigatório"
+            ></app-mensagem>
+            <!-- <app-mensagem class="text-danger"
+            *ngIf="numero?.errors?.maxlength" mensagem="O maximo de caracteres são 7"
+            ></app-mensagem> -->
+          </div>
       </div>
       <!--Complemento-->
       <div class="col-6">
@@ -77,7 +153,19 @@
       <!--Bairro-->
       <div class="col-12">
         <label class="form-label" for="">Bairro</label>
-        <input name="bairro" class="form-control" type="text" />
+        <input
+         name="bairro"
+         class="form-control"
+         type="text"
+         ngModel
+         #bairro="ngModel"
+         required
+         />
+         <div *ngIf="(bairro?.invalid && bairro?.touched) || bairro?.dirty">
+          <app-mensagem class="text-danger"
+          *ngIf=""
+          ></app-mensagem>
+         </div>
       </div>
       <!--Cidade-->
       <div class="col-6">
@@ -89,7 +177,7 @@
         <label class="form-label" for="">UF</label>
         <input name="uf" class="form-control" type="text" />
       </div>
-      <div>
+      <div class="mt-1">
         <button class="btn btn-primary" type="submit">Cadastro</button>
       </div>
     </div>
