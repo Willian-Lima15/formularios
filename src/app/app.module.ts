@@ -5,11 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { MensagemComponent } from './components/mensagem/mensagem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-      FormularioComponent
+      FormularioComponent,
+      MensagemComponent
    ],
   imports: [
     BrowserModule,

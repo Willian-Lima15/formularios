@@ -29,22 +29,26 @@
       <!--Contato-->
       <div class="col-6">
         <label class="form-label" for="">Contato</label>
-        <input name="contato" class="form-control" type="number" id="" ngModel required placeholder="(xx) x xxxx-xxxx"/>
+        <input name="contato" class="form-control" type="number" id="" ngModel required placeholder="(xx) x xxxx-xxxx"
+        pattern="(\(?\d{2}\)?\s?)(\d{5}\-?\d{4})"/>
         <div *ngIf="(f.controls['contato']?.invalid && f.controls['contato']?.touched) || f.controls['contato']?.dirty">
           <span class="text-danger" *ngIf="f.controls['contato']?.errors?.required">
             Contato obrigatório
+          </span>
+          <span class="text-danger" *ngIf="f.controls['contato']?.errors?.pattern">
+            Numero de telefone invalido
           </span>
         </div>
       </div>
       <!--email-->
       <div class="col-12">
         <label class="form-label" for="">E-mail</label>
-        <input name="email" class="form-control" type="text" ngModel id="" required email>
+        <input name="email" class="form-control" type="text" ngModel id="" required pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$">
         <div *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched) || f.controls['email']?.dirty">
           <span class="text-danger" *ngIf="f.controls['email']?.errors?.required">
             Contato obrigatório
           </span>
-          <span class="text-danger" *ngIf="f.controls['email']?.errors?.email">
+          <span class="text-danger" *ngIf="f.controls['email']?.errors?.pattern">
             E-mail invalido
           </span>
         </div>
