@@ -1,3 +1,8 @@
 form {
   padding: 0 340px;
 }
+
+.ng-touched.ng-invalid:not(form) {
+  border-color: red;
+  color: red;
+}

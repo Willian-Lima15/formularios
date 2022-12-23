@@ -14,7 +14,7 @@ export class FormularioComponent implements OnInit {
   }
 
   cadastrar(form:NgForm){
-    console.log(form);
+    console.log(form.controls);
 
   }
 

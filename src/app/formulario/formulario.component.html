@@ -3,53 +3,90 @@
   <form #f="ngForm" (ngSubmit)="cadastrar(f)">
     <div class="row">
       <h4>Dados pessoais</h4>
+      <!--Nome completo-->
       <div class="col-12">
         <label class="form-label" for="">Nome completo</label>
-        <input class="form-control" type="text" />
+        <input name="nome" id="nome" class="form-control" type="text" ngModel required minlength="2"/>
+       <div *ngIf="(f.controls['nome']?.invalid && f.controls['nome']?.touched) || f.controls['nome']?.dirty">
+        <span class="text-danger" *ngIf="f.controls['nome']?.errors?.required">
+          Campo obrigatório
+        </span>
+        <span class="text-danger" *ngIf="f.controls['nome']?.errors?.minlength">
+          Nome deve conter no minimo 2 caracteres
+        </span>
+       </div>
       </div>
+      <!--Data de nascimento-->
       <div class="col-6">
         <label class="form-label" for="">Data de nascimento</label>
-        <input class="form-control" type="date" name="" id="" />
+        <input name="nascimento" class="form-control" type="date" id="" ngModel required />
+        <div *ngIf="(f.controls['nascimento']?.invalid && f.controls['nascimento']?.touched) || f.controls['nascimento'].dirty">
+          <span class="text-danger" *ngIf="f.controls['nascimento']?.errors?.required">
+            Data obrigatória
+          </span>
+        </div>
       </div>
+      <!--Contato-->
       <div class="col-6">
         <label class="form-label" for="">Contato</label>
-        <input class="form-control" type="number" name="" id="" />
+        <input name="contato" class="form-control" type="number" id="" ngModel required placeholder="(xx) x xxxx-xxxx"/>
+        <div *ngIf="(f.controls['contato']?.invalid && f.controls['contato']?.touched) || f.controls['contato']?.dirty">
+          <span class="text-danger" *ngIf="f.controls['contato']?.errors?.required">
+            Contato obrigatório
+          </span>
+        </div>
       </div>
+      <!--email-->
       <div class="col-12">
         <label class="form-label" for="">E-mail</label>
-        <input class="form-control" type="number" name="" id="" />
+        <input name="email" class="form-control" type="text" ngModel id="" required email>
+        <div *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched) || f.controls['email']?.dirty">
+          <span class="text-danger" *ngIf="f.controls['email']?.errors?.required">
+            Contato obrigatório
+          </span>
+          <span class="text-danger" *ngIf="f.controls['email']?.errors?.email">
+            E-mail invalido
+          </span>
+        </div>
       </div>
       <h4>Dados Endereço</h4>
+      <!--CEP-->
       <div class="col-12">
         <label class="form-label" for="">CEP</label>
-        <input class="form-control" type="text" />
+        <input name="cep" class="form-control" type="text" />
       </div>
+      <!--Endereço-->
       <div class="col-12">
         <label class="form-label" for="">Endereço</label>
-        <input class="form-control" type="text" />
+        <input name="endereco" class="form-control" type="text" />
       </div>
+      <!--Numero-->
       <div class="col-6">
         <label class="form-label" for="">Numero</label>
-        <input class="form-control" type="text" />
+        <input name="numero" class="form-control" type="text" />
       </div>
+      <!--Complemento-->
       <div class="col-6">
         <label class="form-label" for="">Complemento</label>
-        <input class="form-control" type="text" />
+        <input name="complemento" class="form-control" type="text" />
       </div>
+      <!--Bairro-->
       <div class="col-12">
         <label class="form-label" for="">Bairro</label>
-        <input class="form-control" type="text" />
+        <input name="bairro" class="form-control" type="text" />
       </div>
+      <!--Cidade-->
       <div class="col-6">
         <label class="form-label" for="">Cidade</label>
-        <input class="form-control" type="text" />
+        <input name="cidade" class="form-control" type="text" />
       </div>
+      <!--UF-->
       <div class="col-6">
         <label class="form-label" for="">UF</label>
-        <input class="form-control" type="text" />
+        <input name="uf" class="form-control" type="text" />
       </div>
       <div>
-        <button class="btn btn-primary" type="submit">cadastro</button>
+        <button class="btn btn-primary" type="submit">Cadastro</button>
       </div>
     </div>
   </form>
