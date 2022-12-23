@@ -1,4 +1,56 @@
 <div class="container">
   <h2>Dados do cadastro</h2>
-  <h4>Dados pessoais</h4>
+  <form #f="ngForm" (ngSubmit)="cadastrar(f)">
+    <div class="row">
+      <h4>Dados pessoais</h4>
+      <div class="col-12">
+        <label class="form-label" for="">Nome completo</label>
+        <input class="form-control" type="text" />
+      </div>
+      <div class="col-6">
+        <label class="form-label" for="">Data de nascimento</label>
+        <input class="form-control" type="date" name="" id="" />
+      </div>
+      <div class="col-6">
+        <label class="form-label" for="">Contato</label>
+        <input class="form-control" type="number" name="" id="" />
+      </div>
+      <div class="col-12">
+        <label class="form-label" for="">E-mail</label>
+        <input class="form-control" type="number" name="" id="" />
+      </div>
+      <h4>Dados Endereço</h4>
+      <div class="col-12">
+        <label class="form-label" for="">CEP</label>
+        <input class="form-control" type="text" />
+      </div>
+      <div class="col-12">
+        <label class="form-label" for="">Endereço</label>
+        <input class="form-control" type="text" />
+      </div>
+      <div class="col-6">
+        <label class="form-label" for="">Numero</label>
+        <input class="form-control" type="text" />
+      </div>
+      <div class="col-6">
+        <label class="form-label" for="">Complemento</label>
+        <input class="form-control" type="text" />
+      </div>
+      <div class="col-12">
+        <label class="form-label" for="">Bairro</label>
+        <input class="form-control" type="text" />
+      </div>
+      <div class="col-6">
+        <label class="form-label" for="">Cidade</label>
+        <input class="form-control" type="text" />
+      </div>
+      <div class="col-6">
+        <label class="form-label" for="">UF</label>
+        <input class="form-control" type="text" />
+      </div>
+      <div>
+        <button class="btn btn-primary" type="submit">cadastro</button>
+      </div>
+    </div>
+  </form>
 </div>
