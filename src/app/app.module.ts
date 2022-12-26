@@ -1,3 +1,4 @@
+import { MaiorIdadeDirective } from './shared/directive/maior-idade.directive';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +12,8 @@ import { MensagemComponent } from './components/mensagem/mensagem.component';
   declarations: [
     AppComponent,
       FormularioComponent,
-      MensagemComponent
+      MensagemComponent,
+      MaiorIdadeDirective
    ],
   imports: [
     BrowserModule,

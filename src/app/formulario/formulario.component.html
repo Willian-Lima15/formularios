@@ -32,16 +32,20 @@
           name="nascimento"
           class="form-control"
           type="date"
-          id=""
+          id="nascimento"
           ngModel
           required
+          maiorIdadeValidator
           #nascimento="ngModel"
         />
         <div
-          *ngIf="(nascimento?.invalid && nascimento?.touched) ||nascimento.dirty">
+          *ngIf="(nascimento?.invalid && nascimento?.touched) || nascimento.dirty">
           <app-mensagem class="text-danger"
             *ngIf="nascimento?.errors?.required" mensagem=" Data obrigatória">
           </app-mensagem>
+          <app-mensagem class="text-danger"
+          *ngIf="nascimento?.errors?.['maiorIdadeValidator']" mensagem="Você não tem idade suficiente">
+        </app-mensagem>
         </div>
       </div>
       <!--Contato-->
