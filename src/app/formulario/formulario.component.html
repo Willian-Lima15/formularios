@@ -108,11 +108,15 @@
           minlength="8"
           maxlength="9"
           (blur)="consultaCep($event, f)"
+          validadorCep
           />
         <div *ngIf="(cep?.invalid && cep?.touched) || cep?.dirty">
           <app-mensagem class="text-danger"
            *ngIf="cep?.errors?.required" mensagem="CEP obrigatório">
           </app-mensagem>
+          <app-mensagem class="text-danger"
+          *ngIf="cep?.errors?.validadorCep" mensagem="CEP informado inexistente">
+         </app-mensagem>
         </div>
       </div>
       <!--Endereço-->

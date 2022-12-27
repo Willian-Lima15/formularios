@@ -1,3 +1,4 @@
+import { ValidandoCepDirective } from './shared/directive/validando-cep.directive';
 import { MaiorIdadeDirective } from './shared/directive/maior-idade.directive';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +15,8 @@ import { MensagemComponent } from './components/mensagem/mensagem.component';
     AppComponent,
       FormularioComponent,
       MensagemComponent,
-      MaiorIdadeDirective
+      MaiorIdadeDirective,
+      ValidandoCepDirective
    ],
   imports: [
     BrowserModule,
