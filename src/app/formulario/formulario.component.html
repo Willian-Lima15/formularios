@@ -104,6 +104,10 @@
           type="text" ngModel
           required
           #cep="ngModel"
+          pattern="^(\d{5})(-?\d{3})$"
+          minlength="8"
+          maxlength="9"
+          (blur)="consultaCep($event, f)"
           />
         <div *ngIf="(cep?.invalid && cep?.touched) || cep?.dirty">
           <app-mensagem class="text-danger"
@@ -152,7 +156,7 @@
       <!--Complemento-->
       <div class="col-6">
         <label class="form-label" for="">Complemento</label>
-        <input name="complemento" class="form-control" type="text" />
+        <input name="complemento" class="form-control" type="text" ngModel #complemento="ngModel"/>
       </div>
       <!--Bairro-->
       <div class="col-12">
@@ -174,12 +178,12 @@
       <!--Cidade-->
       <div class="col-6">
         <label class="form-label" for="">Cidade</label>
-        <input name="cidade" class="form-control" type="text" />
+        <input name="cidade" class="form-control" type="text" ngModel  #cidade="ngModel" required/>
       </div>
       <!--UF-->
       <div class="col-6">
         <label class="form-label" for="">UF</label>
-        <input name="uf" class="form-control" type="text" />
+        <input name="estado" class="form-control" type="text" ngModel #estado="ngModel" />
       </div>
       <div class="mt-1">
         <button class="btn btn-primary" type="submit">Cadastro</button>
